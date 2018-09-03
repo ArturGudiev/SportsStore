@@ -15,10 +15,11 @@ export class ProductEditorComponent {
   constructor(private repository: ProductRepository,
               private router: Router,
               activeRoute: ActivatedRoute) {
+    console.log('');
     this.editing = activeRoute.snapshot.params['mode'] === 'edit';
     if (this.editing) {
       Object.assign(this.product,
-        repository.getProduct(activeRoute.snapshot.params['id']));
+        repository.getProduct(Number(activeRoute.snapshot.params['id'])));
     }
   }
 
